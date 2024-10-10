@@ -14,6 +14,7 @@ export default defineConfig({
 
       // 添加 @images 别名(指向 src/assets/images 目錄)
       '@images': fileURLToPath(new URL('./src/assets/images', import.meta.url))
+
     }
   },
 
@@ -25,6 +26,7 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }
+
     }
   }
 })
