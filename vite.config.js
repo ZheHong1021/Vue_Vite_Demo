@@ -14,6 +14,19 @@ export default defineConfig({
 
       // 添加 @images 别名(指向 src/assets/images 目錄)
       '@images': fileURLToPath(new URL('./src/assets/images', import.meta.url))
+
+    }
+  },
+
+  // 設定 proxy 代理
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+
     }
   }
 })
