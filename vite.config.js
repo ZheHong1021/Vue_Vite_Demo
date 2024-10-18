@@ -7,6 +7,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue(), vueDevTools()],
+  base: '/Vue_Vite_Demo/', // 設定打包路徑
   resolve: {
     alias: {
       // 添加 @ 别名(指向 src 目錄)
@@ -14,7 +15,6 @@ export default defineConfig({
 
       // 添加 @images 别名(指向 src/assets/images 目錄)
       '@images': fileURLToPath(new URL('./src/assets/images', import.meta.url))
-
     }
   },
 
@@ -26,7 +26,6 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }
-
     }
   }
 })
